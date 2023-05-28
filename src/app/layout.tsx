@@ -31,15 +31,16 @@ export default async function RootLayout({
   const currentUser = await getCurrentUser();
   return (
     <html lang="en">
-      <ClientOnly>
-        <ToastProvider />
-        <RentModal />
-        <LoginModal />
-        <RegisterModal />
-        <Navbar currentUser={currentUser} />
-      </ClientOnly>
-
-      <body className={nunitoFont.className}>{children}</body>
+      <body className={nunitoFont.className}>
+        <ClientOnly>
+          <ToastProvider />
+          <RentModal />
+          <LoginModal />
+          <RegisterModal />
+          <Navbar currentUser={currentUser} />
+        </ClientOnly>
+        <div className="pb-20 pt-28">{children}</div>
+      </body>
     </html>
   );
 }
